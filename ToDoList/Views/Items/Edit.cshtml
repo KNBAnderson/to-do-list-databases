@@ -1,12 +1,15 @@
+@using ToDoList.Models;
+@using System.Collections.Generic;
+
 <h1>To Do List</h1>
 <hr>
 
-<h2>Edit item: @Model["item"].GetDescription()</h2>
-
-<form action="/categories/@Model["category"].GetId()/items/@Model["item"].GetId()" method="post">
+<h2>Edit item: @Model["selectedItem"].GetDescription()</h2>
+<p>@Model["selectedItem"].GetId()</p>
+<form action="/items/@Model["selectedItem"].GetId()" method="post">
   <label for="newDescription">Name:</label>
-  <input type="text" name="newDescription" value="@Model["item"].GetDescription()">
+  <input type="text" name="newDescription">
   <button type="submit">Edit</button>
 </form>
 
-<h4><a href="/categories/@Model["category"].GetId()/items/@Model["item"].GetId()">Return to previous page</a></h4>
+<h4><a href="/items/@Model["selectedItem"].GetId()">Return to previous page</a></h4>
